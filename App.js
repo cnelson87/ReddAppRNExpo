@@ -1,6 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
+import { Provider } from 'react-redux';
+import { StatusBar } from 'expo-status-bar';
+
+import store from './src/store/store';
 
 const styles = StyleSheet.create({
 	body: {
@@ -32,15 +35,17 @@ const styles = StyleSheet.create({
 
 function App() {
 	return (
-		<SafeAreaView style={styles.body}>
-			<StatusBar style="auto" />
-			<View style={styles.section}>
-				<Text style={styles.title}>React Native</Text>
-				<Text style={styles.text}>
-					Edit <Text style={styles.strong}>App.js</Text> to change this screen and then come back to see your edits.
-				</Text>
-			</View>
-		</SafeAreaView>
+		<Provider store={store}>
+			<SafeAreaView style={styles.body}>
+				<StatusBar style="auto" />
+				<View style={styles.section}>
+					<Text style={styles.title}>React Native</Text>
+					<Text style={styles.text}>
+						Edit <Text style={styles.strong}>App.js</Text> to change this screen and then come back to see your edits.
+					</Text>
+				</View>
+			</SafeAreaView>
+		</Provider>
 	);
 }
 
