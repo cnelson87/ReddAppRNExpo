@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import store from './src/store/store';
-import HomeScreen from './src/views/HomeScreen';
-import PostDetailScreen from './src/views/PostDetailScreen';
-import SubredditScreen from './src/views/SubredditScreen';
-import UserScreen from './src/views/UserScreen';
+import store from 'store/store';
+import HomeScreen from 'views/HomeScreen';
+import PostDetailScreen from 'views/PostDetailScreen';
+import SubredditScreen from 'views/SubredditScreen';
+import UserScreen from 'views/UserScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,9 +23,6 @@ function App() {
 						headerTitle: null,
 						headerBackTitleVisible: false,
 						// headerTransparent: true,
-						// headerStyle: {
-						//
-						// },
 					}}
 				>
 					<Stack.Screen name="Home" component={HomeScreen} />

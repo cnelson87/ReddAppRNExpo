@@ -1,14 +1,18 @@
 import React from 'react';
 import { SafeAreaView, View, Text, Button } from 'react-native';
 
-import axios from '../config/axios';
-import styles from '../styles/styles';
+import axios from 'config/axios';
+import styles from 'styles/styles';
 
 class SubredditScreen extends React.Component {
 
 	state = {
 		sidebarData: null
 	};
+
+	componentDidMount() {
+		// console.log('SubredditScreen:componentDidMount');
+	}
 
 	render() {
 		const { navigation } = this.props;
