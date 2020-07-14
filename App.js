@@ -1,51 +1,40 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
-import { Provider } from 'react-redux';
 import { StatusBar } from 'expo-status-bar';
+import { Provider } from 'react-redux';
+import { NavigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import store from './src/store/store';
+import HomeScreen from './src/views/HomeScreen';
+import PostDetailScreen from './src/views/PostDetailScreen';
+import SubredditScreen from './src/views/SubredditScreen';
+import UserScreen from './src/views/UserScreen';
 
-const styles = StyleSheet.create({
-	body: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	section: {
-		marginVertical: 20,
-		paddingHorizontal: 20,
-	},
-	title: {
-		color: '#000',
-		fontSize: 24,
-		fontWeight: '600',
-		marginVertical: 5,
-	},
-	text: {
-		color: '#333',
-		fontSize: 18,
-		fontWeight: '400',
-		marginVertical: 5,
-	},
-	strong: {
-		fontWeight: '700',
-	},
-});
+const Stack = createStackNavigator();
 
 function App() {
 	return (
-		<Provider store={store}>
-			<SafeAreaView style={styles.body}>
+		<NavigationContainer>
+			<Provider store={store}>
 				<StatusBar style="auto" />
-				<View style={styles.section}>
-					<Text style={styles.title}>React Native</Text>
-					<Text style={styles.text}>
-						Edit <Text style={styles.strong}>App.js</Text> to change this screen and then come back to see your edits.
-					</Text>
-				</View>
-			</SafeAreaView>
-		</Provider>
+				<Stack.Navigator
+					initialRouteName="Home"
+					screenOptions={{
+						headerTitle: null,
+						headerBackTitleVisible: false,
+						// headerTransparent: true,
+						// headerStyle: {
+						//
+						// },
+					}}
+				>
+					<Stack.Screen name="Home" component={HomeScreen} />
+					<Stack.Screen name="PostDetail" component={PostDetailScreen} />
+					<Stack.Screen name="Subreddit" component={SubredditScreen} />
+					<Stack.Screen name="User" component={UserScreen} />
+				</Stack.Navigator>
+			</Provider>
+		</NavigationContainer>
 	);
 }
 
