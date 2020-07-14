@@ -4,12 +4,11 @@ const styles = StyleSheet.create({
 	body: {
 		flex: 1,
 		backgroundColor: '#fff',
-		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	section: {
-		marginVertical: 20,
-		paddingHorizontal: 20,
+		backgroundColor: '#efefef',
+		padding: 20,
 	},
 	title: {
 		color: '#000',
@@ -24,6 +23,16 @@ const styles = StyleSheet.create({
 		marginVertical: 5,
 	},
 	strong: {
+		fontWeight: '700',
+	},
+	button: {
+		backgroundColor: 'blue',
+		marginVertical: 5,
+		padding: 10,
+	},
+	buttonText: {
+		color: '#fff',
+		fontSize: 14,
 		fontWeight: '700',
 	},
 });
